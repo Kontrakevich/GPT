@@ -1,11 +1,13 @@
 {
-  "name": "Диалог пары",
-  "short_name": "Диалог",
-  "description": "Пошаговый разговор для пары без спора и взаимных обвинений.",
+  "name": "HROS — Human Relations Operating System",
+  "short_name": "HROS",
+  "description": "Web3D/PWA-система для осознанных диалогов, договорённостей и истории отношений.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f4f1ec",
-  "theme_color": "#8b4f63",
-  "lang": "ru"
+  "orientation": "portrait-primary",
+  "background_color": "#02080d",
+  "theme_color": "#06141b",
+  "lang": "ru-RU",
+  "categories": ["lifestyle", "productivity"]
 }
