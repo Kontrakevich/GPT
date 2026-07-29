@@ -1,0 +1,11 @@
+{
+  "name": "Диалог пары",
+  "short_name": "Диалог",
+  "description": "Пошаговый разговор для пары без спора и взаимных обвинений.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f1ec",
+  "theme_color": "#8b4f63",
+  "lang": "ru"
+}
