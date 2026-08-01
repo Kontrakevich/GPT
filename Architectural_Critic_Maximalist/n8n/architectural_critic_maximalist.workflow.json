@@ -1,0 +1,50 @@
+{
+  "name": "Architectural Critic Maximalist - Run Project",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "architectural-project",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook",
+      "name": "Project Brief Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8040/api/v1/projects/run",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ JSON.stringify($json.body) }}",
+        "options": {"timeout": 900000}
+      },
+      "id": "api",
+      "name": "Run Critic Supervisor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [300, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Return Approved Package",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [600, 0]
+    }
+  ],
+  "connections": {
+    "Project Brief Webhook": {"main": [[{"node": "Run Critic Supervisor", "type": "main", "index": 0}]]},
+    "Run Critic Supervisor": {"main": [[{"node": "Return Approved Package", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"}
+}
